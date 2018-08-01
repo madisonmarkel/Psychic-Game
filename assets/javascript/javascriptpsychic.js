@@ -23,6 +23,14 @@ document.onkeyup = function(event) {
             } else {
                 losses++;
                 guessesLeft--;
+            }
+        for (var j=0; j<psychicChoice.length; j++){
+
+            if (userGuess !== psychicChoice) {
+                guessesLeft--;
+                var wrongGuess = [""];
+                wrongGuess.unshift(userGuess);
+            }
         }
             
 
@@ -32,7 +40,7 @@ document.onkeyup = function(event) {
             "<p>The psychic chose: " + psychicChoice + "</p>" +
             "<p>Matches: " + matches + "</p>" +
             "<p>Losses: " + losses + "</p>" +
-            "<p>Guesses: " + userGuess + "</p>";
+            "<p>Guesses: " + wrongGuess + "</p>";
 
             document.querySelector("#game").innerHTML = html;
     };
